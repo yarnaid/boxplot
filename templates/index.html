@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example...</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/timetree_basic.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/timetree_chrome_devtools.css') }}">
+
+    <script src="{{ url_for('static', filename='js/lib/jquery-2.1.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lib/d3.v3.min.js') }}"></script>
+</head>
+<body>
+
+    <script type="text/x-handlebars">
+{% raw %}
+        <section id="main">
+        text
+        time-tree content=input_data
+
+        {{view App.ChromeDevToolsTimetreeView contentBinding="App.input_data" classNames="chrome-devtools-timetree" rowHeight=12}}
+
+        </section>
+{% endraw %}
+    </script>
+
+<script src="{{ url_for('static', filename='js/lib/ember-template-compiler.js') }}"></script>
+<script src="{{ url_for('static', filename='js/lib/handlebars-v1.3.0.js') }}"></script>
+<script src="{{ url_for('static', filename='js/lib/ember.debug.js') }}"></script>
+<script src="{{ url_for('static', filename='js/lib/ember-data.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/ember-timetree.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
