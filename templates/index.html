@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/timetree_basic.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/timetree_chrome_devtools.css') }}">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='c3/c3.css') }}">
+
     <script src="{{ url_for('static', filename='js/lib/jquery-2.1.3.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/lib/d3.v3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='d3/d3.js') }}"></script>
+    <script src="{{ url_for('static', filename='c3/c3.js') }}"></script>
+
 </head>
 <body>
 
@@ -25,6 +29,11 @@
         </section>
 {% endraw %}
     </script>
+
+
+
+    <div id="chart"></div>
+    <script src="{{ url_for('static', filename='js/line_chart.js') }}"></script>
 
 <script src="{{ url_for('static', filename='js/lib/ember-template-compiler.js') }}"></script>
 <script src="{{ url_for('static', filename='js/lib/handlebars-v1.3.0.js') }}"></script>
