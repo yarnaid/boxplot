@@ -46,10 +46,11 @@ def line_data(df):
 def line_nvd3_data(df):
     res = list()
     keys = set(df.columns.values) - {'day'}
+    size = len(df)
 
     for key in keys:
         res.append({
             'key': key,
-            'values': df[key]
+            'values': [{'x': df['day'][i], 'y': df[key][i]} for i in xrange(size)]
             })
     return res
