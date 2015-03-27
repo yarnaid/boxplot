@@ -1,5 +1,9 @@
-
 var data, chart;
+var labels_width = 160;
+var width = 750;
+var top_height = 150 + 5;
+var chart_height = 500;
+
 
 // d3.json('/ajax_get_line_data', function(err, json) {
 //     data = json['result'];
@@ -47,5 +51,7 @@ d3.json('/ajax_get_line_data', function(err, json) {
 
     return chart;
   });
+    d3.select('#chart svg').style('position', 'absolute');
+    $('#chart svg').offset({top: top_height, left: labels_width});
 }).header("Content-Type","application/json")
    .send("POST");
