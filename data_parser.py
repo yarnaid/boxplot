@@ -25,7 +25,17 @@ def parse(df):
             prev_label = res[i]['label']
             if label[:-1].count(prev_label) > 0:
                 res[i+1]['parent'] = i
-                print '!!!!!!'
-            print label, prev_label
+
+    return res
+
+
+def line_data(df):
+    res = list()
+    keys = set(df.columns.values) - {'day'}
+
+    for key in keys:
+        row = [key]
+        row.extend(df[key])
+        res.append(row)
 
     return res

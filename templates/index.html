@@ -18,6 +18,7 @@
 </head>
 <body>
 
+    <div>
     <script type="text/x-handlebars">
 {% raw %}
         <section id="main">
@@ -27,12 +28,14 @@
         {{view App.ChromeDevToolsTimetreeView contentBinding="App.input_data" classNames="chrome-devtools-timetree" rowHeight=12}}
 
         </section>
+
 {% endraw %}
     </script>
-
-
-
     <div id="chart"></div>
+
+    </div>
+
+
     <script src="{{ url_for('static', filename='js/line_chart.js') }}"></script>
 
 <script src="{{ url_for('static', filename='js/lib/ember-template-compiler.js') }}"></script>
