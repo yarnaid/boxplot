@@ -104,10 +104,10 @@ App.ApiData = [
 
 App.ChromeDevToolsTimetreeView = Ember.Timetree.TimetreeView.extend({
   timeTickFormat: Ember.computed(function() {
-    var minTime = this.get('xScale').domain()[0];
-    var minTime = d3.min(this.content.mapProperty('start'));
-    return function(d){ return parseInt(d - minTime) + 'ms'; };
+    // var minTime = this.get('xScale').domain()[0];
+    // var minTime = d3.min(this.content.mapProperty('start'));
+    return function(d){ return parseInt(d) + ' day(s)'; };
   }).property(),
 
-  durationFormatter: function(n) { return (n.end - n.start) + 'ms'; }
+  durationFormatter: function(n) { return (n.end - n.start) + ' day(s)'; }
 });
