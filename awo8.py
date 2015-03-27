@@ -31,7 +31,7 @@ def ajax_get_line_data():
     if request.method == 'POST':
         df = pd.read_json(os.path.join(app.root_path,
                                        './static/data/sample.json'))
-        data = data_parser.line_data(df)
+        data = data_parser.line_nvd3_data(df)
         res = jsonify(result=data)
         return res
 

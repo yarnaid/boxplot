@@ -1,19 +1,21 @@
 __author__ = 'yarnaid'
 
 from collections import defaultdict
-import numpy as np
+# import numpy as np
 
 
 def parse(df):
     res = list()
     keys = set(df.columns.values) - {'day'}
-    size = len(df)
 
     for key in keys:
+        seria = df[key]
+        non_zero = seria[seria > 0]
+        index = non_zero.index
         item = {
             'label': key,
-            'start': np.where(df[key] > 0)[0][0],
-            'end': size - np.where(df[key][::-1] > 0)[0][0],
+            'start': index[0],
+            'end': index[-1],
             'className': 'network'
         }
         res.append(item)
@@ -38,4 +40,16 @@ def line_data(df):
         row.extend(df[key])
         res.append(row)
 
+    return res
+
+
+def line_nvd3_data(df):
+    res = list()
+    keys = set(df.columns.values) - {'day'}
+
+    for key in keys:
+        res.append({
+            'key': key,
+            'values': df[key]
+            })
     return res
