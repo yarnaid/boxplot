@@ -6,6 +6,7 @@ from flask import jsonify
 import os
 import data_parser
 import pandas as pd
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -22,6 +23,18 @@ def ajax_get_box_data():
                                        './static/data/sample.json'))
         data = data_parser.parse(df)
 
+        res = jsonify(result=data)
+        return res
+
+
+@app.route('/ajax_get_data2', methods=["GET", "POST"])
+def ajax_get_box_data2():
+    if request.method == 'POST':
+        df = pd.read_json(os.path.join(app.root_path,
+                                       './static/data/sample.json'))
+        data = data_parser.parse2(df)
+
+        print
         res = jsonify(result=data)
         return res
 

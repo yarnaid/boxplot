@@ -1,30 +1,10 @@
 var data, chart;
-var labels_width = 200;
+var labels_width = 20;
 var width = 770;
-var top_height = 150 + 5;
+var top_height = 0 + 5;
 var chart_height = 500;
 
 
-// d3.json('/ajax_get_line_data', function(err, json) {
-//     data = json['result'];
-//     chart = c3.generate({
-//         bindto: '#chart',
-//         data: {
-//           columns: data,
-//           type: 'area-spline'
-//         },
-//         point: {
-//             show: false
-//         }
-//   });
-// }).header("Content-Type","application/json")
-//    .send("POST");
-
-
-
-
-// $('#chart').offset({top: 0, left: labels_width});
-// d3.select('.nvtooltip').style('margin-left', -labels_width);
 d3.json('/ajax_get_line_data', function(err, json) {
   nv.addGraph(function() {
     data = json['result'];

@@ -18,11 +18,62 @@
 
     <script src="{{ url_for('static', filename='nvd3/build/nv.d3.min.js') }}"></script>
 
+    <script src="{{ url_for('static', filename='js/lib/underscore/underscore-min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/select_bar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bar_chart.js') }}"></script>
+
 
 </head>
 <body>
 
-    <div>
+<div class="container">
+<div class="row">
+    <div class="col-md-2" id="selectBar"></div>
+    <div class="col-md-9" id="barChart"></div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        var bar_data = [];
+        var line_data = [];
+        var eventHandler = new Object();
+
+        var init_vis = function () {
+            var select_bar = new SelectBar(d3.select("#selectBar"), bar_data, eventHandler);
+            var bar_chart = new BarChart(d3.select("#barChart"), bar_data, eventHandler);
+
+            $(eventHandler).bind('collapse_bar', function(event, source) {
+                bar_chart.update(source);
+            });
+            $(eventHandler).bind('collapse_select', function(event, source) {
+                select_bar.update(source);
+            });
+        };
+
+        var data_loaded = function (err, _bar_data, _line_data) {
+            if (!err) {
+                d3.json('/ajax_get_data2', function(err, json) {
+                    bar_data = json['result'];
+                    init_vis();
+                }).header("Content-Type","application/json")
+                   .send("POST");
+
+            } else {
+                console.log(err);
+            }
+        };
+
+        var do_all = function () {
+            data_loaded(false);
+        };
+
+        do_all();
+
+    });
+</script>
+
     <script type="text/x-handlebars">
 {% raw %}
         <section id="main">
@@ -35,8 +86,9 @@
 
 {% endraw %}
     </script>
-    <div id="chart"><svg></svg></div>
-
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-9" id="chart"><svg></svg></div>
     </div>
 
 
@@ -50,5 +102,6 @@
 <script src="{{ url_for('static', filename='js/ember-timetree.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
+</div>
 </body>
 </html>
