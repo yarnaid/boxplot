@@ -1,0 +1,32 @@
+{
+  "label": "root",
+  "children": [
+    {
+      "label": "a",
+      "children": [
+        {
+          "label": "a1",
+          "children": null
+        },
+        {
+          "label": "a2",
+          "children": [
+            {
+              "label": "a2i",
+              "children": [
+                {
+                  "label": "a2ii",
+                  "children": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "b",
+      "children": null
+    }
+  ]
+}
