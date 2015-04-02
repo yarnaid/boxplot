@@ -52,10 +52,12 @@ BarChart.prototype.init_vis = function() {
     	.attr('storke-width', 5)
     	.attr('fill', 'none')
 
+    var commasFormatter = d3.format(",.0f")
     this.x_axis = d3.svg.axis()
     	.scale(this.x)
     	.orient('top')
-    	.ticks(10);
+    	.ticks(10)
+        .tickFormat(function(d) { return commasFormatter(d) + ' day(s)'; });
 
     this.wrangle();
     this.update(self.data);
