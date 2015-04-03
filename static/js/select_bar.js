@@ -1,4 +1,9 @@
 'use strict';
+
+//////////////////////////////////////////////////////
+// base example http://bl.ocks.org/mbostock/1093025 //
+//////////////////////////////////////////////////////
+
 var SelectBar = function(_parent, _data, _eventHandler) {
     this.parent = _parent;
     this.data = _data;

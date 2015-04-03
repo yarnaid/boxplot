@@ -2,7 +2,7 @@
 
 .node rect {
   cursor: pointer;
-  fill: #fff;
+  /*fill: #fff;*/
   fill-opacity: .85;
   stroke: #3182bd;
   stroke-width: 1px;
@@ -36,11 +36,17 @@ path.link {
     font-size: 11px;
 }
 
-.network rect{
-  fill: rgb(91, 141, 223);
-  stroke: rgb(95, 136, 205);
+.chrome-devtools-timetree .network rect, .clean rect, .network rect{
+  /*fill: rgb(91, 141, 223);*/
+  fill: white;
+  /*stroke: rgb(95, 136, 205);*/
+  stroke: black;
 }
 
-.network text{
-  fill: white;
+
+.chrome-devtools-timetree .network text{
+  /*fill: rgb(91, 141, 223);*/
+  fill: black;
 }
+
+

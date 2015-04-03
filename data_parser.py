@@ -22,7 +22,7 @@ def parse(df):
             'label': key,
             'start': index[0],
             'end': index[-1],
-            'className': 'network'
+            'className': 'clean network'
         }
         res.append(item)
     res.sort(key=lambda x: x['label'])
@@ -51,7 +51,7 @@ def parse2(df):
             'start': index[0],
             'end': index[-1],
             'children': [],
-            'className': 'network',
+            'className': 'clean network',
         }
         nodes.append(item)
         nodes_dict[key] = item
